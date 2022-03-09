@@ -362,3 +362,27 @@ SSH Key 由两部分组成：
 ### 快速创建和切换分支
 使用如下的命令，可以创建指定名称的新分支，并立即切换到新分支上
     git checkout -b 分支名称
+
+### 合并分支 
+功能分支的代码开发测试完毕之后，可以使用如下的命令，将完成后的代码合并到master主分支上：
+    git checkout master // 切换到maset分支
+    git merge login     // 在master分支上运行git merge命令，将login分支的代码合并到master分支
+<img src="./master.png" />
+注：假设要把C分支合并到A分支，则必须先切换到A分支上，在运行git merge命令，来合并C分支
+    每个分支的文件都是独立的
+
+### 删除分支
+当把功能分支的代码合并到master主分支上以后，就可以使用如下命令，删除对应的功能分支：
+    git branch -d 分支名称
+注：不能删除当前处于的某个分支
+
+### 遇到冲突时合并分支
+如果在两个不同的分支在，对同一个文件进行了不同的修改，Git就没法干净的合并他们。此时，我们需要打开这些冲突文件然后手动解决。
+    假设：把reg分支合并到master分支上，代码发生了冲突
+    git checkout master
+    git merge reg
+
+    打开冲突文件，手动解决冲突之后，在执行如下命令
+    git add .
+    git commit -m "解决了分支冲突的问题"
+<img src="./chongtu.png" />
