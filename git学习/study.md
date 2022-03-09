@@ -285,3 +285,36 @@ Github上的远程仓库，有两种访问方式，分别是HTTPS和SSH，它们
 注：如果没有本地Git仓库，需要创建Git仓库，在上传
 https://github.com/niubilit/my_01.git
 git@github.com:niubilit/my_01.git
+
+只有第一次才使用上面的代码提交，之后的提交都是 git push
+
+### SSH Key
+作用：实现本地仓库和Github仓库之间免登录的加密数据传输
+好处：免登录身份认证、数据加密传输
+SSH Key 由两部分组成：
+    01 id_rsa （私钥文件，存放于客户端的电脑中即可）
+    02 id_rsa.pub（公钥文件，需要配置到Github中）
+
+#### 生成SSH Key
+    01 打开Git Bash
+    02 运行如下命令，并将your_email@example.com替换为注册Github账号时填写的邮箱：
+        * ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+    03 连续敲击3次回车键，即可在C:\Users\用户名文件\.ssh目录中生成id_rsa和id_rsa.phb两个文件
+
+#### 配置SSH Key
+    01 使用记事本打开id_rsa.pub文件，复制里面的内容
+    02 在浏览器中登录Github，点击头像 => Settings => SSH and GPG Keys => New SSH Key
+    03 将id_rsa.pub文件中的内容，粘贴到Key对应的文本框中
+    04 在Title文本框中填写一个名称，来标识这个Key从何而来
+
+#### 检查Github的SSH key是否配置成功
+    ssh -T git@github.com
+
+### 基于SSH将仓库上传到Github
+ git remote add origin git@github.com:niubilit/project_02.git
+ git branch -M main
+ git push -u origin main
+
+### 将远程仓库克隆到本地
+打开git bash
+    git clone 远程仓库地址
