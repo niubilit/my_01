@@ -283,3 +283,5 @@ Github上的远程仓库，有两种访问方式，分别是HTTPS和SSH，它们
     git push -u origin master                 // 将本地仓库中的内容推送到远程的origin仓库中
 每次上传都需要登录Githun账号
 注：如果没有本地Git仓库，需要创建Git仓库，在上传
+https://github.com/niubilit/my_01.git
+git@github.com:niubilit/my_01.git
