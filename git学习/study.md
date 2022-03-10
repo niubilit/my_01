@@ -431,3 +431,6 @@ SSH Key 由两部分组成：
 
     # 强制删除本地分支
     git branch -D 分支名称
+
+# 总结
+<img src="./total.png"/>
